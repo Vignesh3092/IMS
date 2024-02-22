@@ -1,0 +1,53 @@
+package servlets;
+
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
+
+import helper.FactoryProvider;
+import model.Issue;
+
+
+@WebServlet("/listIssueServlet")
+public class listIssueServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    public listIssueServlet() {
+        super();
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        Session session = FactoryProvider.getFactory().openSession();
+
+        try {
+            session.beginTransaction();
+            List<Issue> issues = session.createQuery("from Issue", Issue.class).getResultList();
+            session.getTransaction().commit();
+            for(int i=0;i<10;i++) {
+            	System.out.println("|");
+            }
+        	System.out.println("V");
+            System.out.println(issues);
+        	System.out.println("A");
+
+            for(int i=0;i<10;i++) {
+            	System.out.println("|");
+            }
+            request.setAttribute("issue", issues);
+            request.getRequestDispatcher("listIssues.jsp").forward(request, response);
+        } finally {
+            session.close();
+        }
+    }
+
+}

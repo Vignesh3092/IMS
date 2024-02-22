@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Issue Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Additional custom styles */
+        body {
+            font-family: Arial, sans-serif;
+            padding-top: 20px; /* Adjust as needed */
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Employee Management</h1>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="list-group">
+                    <a href="createIssue.jsp" class="list-group-item list-group-item-action">Create Issue</a>
+                    <a href="listIssue.jsp" class="list-group-item list-group-item-action">List Issue</a>
+                    <a href="updateIssue.jsp" class="list-group-item list-group-item-action">Update Issue</a>
+                    <a href="deleteIssue.jsp" class="list-group-item list-group-item-action">Delete Issue</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional, if you need JavaScript features) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
